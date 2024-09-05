@@ -1,6 +1,6 @@
 const typeDefs = `
     type Book {
-        bookId: ID
+        bookId: ID!
         authors: [String]
         description: String
         title: String
@@ -9,7 +9,7 @@ const typeDefs = `
     }
 
     type User {
-        _id: ID,
+        _id: ID!
         username: String
         email: String
         password: String

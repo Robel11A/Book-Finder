@@ -35,6 +35,9 @@ const LoginForm = () => {
         variables: {...userFormData}
       });
 
+      console.log(data)
+
+
     
       Auth.login(data.login.token);
     } catch (err) {
@@ -43,8 +46,7 @@ const LoginForm = () => {
     }
 
     setUserFormData({
-      username: '',
-      email: '',
+      identifier: '',
       password: '',
     });
   };
@@ -60,9 +62,9 @@ const LoginForm = () => {
           <Form.Control
             type='text'
             placeholder='Your email'
-            name='email'
+            name='identifier'
             onChange={handleInputChange}
-            value={userFormData.email}
+            value={userFormData.identifier}
             required
           />
           <Form.Control.Feedback type='invalid'>Email is required!</Form.Control.Feedback>
@@ -81,7 +83,7 @@ const LoginForm = () => {
           <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
         </Form.Group>
         <Button
-          disabled={!(userFormData.email && userFormData.password)}
+          disabled={!(userFormData.identifier && userFormData.password)}
           type='submit'
           variant='success'>
           Submit
